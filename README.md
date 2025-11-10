@@ -2,6 +2,10 @@
 
 A modern conversational chatbot built with Streamlit and LangChain, powered by Together AI's LLM models.
 
+This repository includes **two chatbot applications**:
+1. **app.py** - Standard conversational chatbot
+2. **hinglish_bot.py** - Hinglish chatbot with customizable system messages
+
 ## Features
 
 - 💬 Interactive chat interface with message history
@@ -9,6 +13,8 @@ A modern conversational chatbot built with Streamlit and LangChain, powered by T
 - 🔄 Conversation memory using LangChain's latest patterns
 - 🎨 Clean and intuitive UI built with Streamlit
 - 🔒 Secure API key management with Streamlit secrets
+- 🇮🇳 **NEW**: Hinglish bot with customizable personality
+- ⚙️ **NEW**: Editable system messages and preset templates
 
 ## Tech Stack
 
@@ -44,6 +50,8 @@ A modern conversational chatbot built with Streamlit and LangChain, powered by T
 
 ## Usage
 
+### Standard Chatbot (app.py)
+
 1. **Run the application**:
    ```bash
    streamlit run app.py
@@ -58,16 +66,35 @@ A modern conversational chatbot built with Streamlit and LangChain, powered by T
    - Press Enter to send
    - The AI will respond with context from your conversation history
 
+### Hinglish Chatbot (hinglish_bot.py)
+
+1. **Run the Hinglish bot**:
+   ```bash
+   streamlit run hinglish_bot.py
+   ```
+
+2. **Customize the bot** (Optional):
+   - Open `hinglish_bot.py` in a text editor
+   - Edit the `system_message` variable (line 17)
+   - Save and restart the bot
+
+3. **Chat in Hinglish**:
+   - Type in Hindi, English, or Hinglish
+   - The bot will respond in natural Hinglish
+   - Example: "Bhai, machine learning kaise seekhun?"
+
+
 ## Project Structure
 
 ```
 chatbot_Course/
-├── app.py                      # Main application file
-├── requirements.txt            # Python dependencies
+├── app.py                          # Standard conversational chatbot
+├── hinglish_bot.py                 # Hinglish chatbot (customizable)
+├── requirements.txt                # Python dependencies
+├── README.md                       # Main documentation
 ├── .streamlit/
-│   └── secrets.toml           # API keys (not committed to git)
-├── .gitignore                 # Git ignore file
-└── README.md                  # This file
+│   └── secrets.toml               # API keys (not committed to git)
+└── .gitignore                     # Git ignore file
 ```
 
 ## Configuration
@@ -103,6 +130,24 @@ llm = ChatOpenAI(
 ### Adjusting Conversation Memory
 
 The chatbot uses `InMemoryChatMessageHistory` to maintain conversation context. To limit the number of messages remembered, you can implement a custom message history with a window size.
+
+### Customizing System Messages (Hinglish Bot)
+
+The Hinglish bot allows you to customize the AI's personality by editing the code:
+
+1. **Open `hinglish_bot.py`** in any text editor
+2. **Find the `system_message` variable** (around line 17)
+3. **Replace the text** with your custom message
+4. **Save and restart** the bot
+
+**Example custom system message**:
+```python
+system_message = """You are a coding tutor who teaches in Hinglish. 
+Explain programming concepts using simple Hindi-English mix.
+Use examples that Indian students can relate to.
+Be encouraging and patient.
+"""
+```
 
 ## Key Features Explained
 
